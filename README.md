@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # 🗓️ Organisateur de tâches hebdomadaires
 
 Ce projet permet de planifier et gérer ses tâches tout au long de la semaine, avec une interface simple et intuitive.
@@ -125,3 +126,6 @@ For open source projects, say how it is licensed.
 ## Project status
 If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
 >>>>>>> 4bd4411cf9320fafd0bbb02a7d7d678014a72ffd
+=======
+# task-organizer
+>>>>>>> c50703d0968e0ceedcfe64913fd9450336519e9a
