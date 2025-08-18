@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Organisateur de tâches hebdomadaires</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🗓️ Organisateur de tâches</h1>
+    <p>Planifie ta semaine et reste productif</p>
+  </header>
+
+  <main>
+    <section id="suggestions">
+      <h3>💡 Suggestions pour aujourd’hui</h3>
+      <ul id="daily-suggestions"></ul>
+    </section>
+
+    <section id="task-form">
+      <input type="text" id="task-input" placeholder="Nouvelle tâche..." />
+      <select id="priority-select">
+        <option value="Haute">Haute priorité</option>
+        <option value="Moyenne" selected>Priorité moyenne</option>
+        <option value="Basse">Basse priorité</option>
+      </select>
+      <input type="date" id="task-date" />
+      <input type="time" id="task-time" />
+      <button id="add-task-btn">Ajouter</button>
+      <button id="voice-btn">🎙️ Dicter</button>
+    </section>
+
+    <section id="task-list">
+      <h2>📋 Liste des tâches</h2>
+      <ul id="tasks"></ul>
+    </section>
+
+    <section id="stats-section">
+      <h3>📊 Statistiques de la semaine</h3>
+      <p id="stats-output">Chargement...</p>
+    </section>
+
+    <section id="export-section">
+      <button id="export-pdf-btn">📄 Exporter en PDF</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Créé avec ❤️ pour simplifier ta semaine</p>
+  </footer>
+
+  <!-- Librairies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init("TON_USER_ID"); // Remplace par ton vrai User ID EmailJS
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
