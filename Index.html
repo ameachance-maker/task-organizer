@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Organisateur de tâches hebdomadaires</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🗓️ Organisateur de tâches</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
+  <!-- html2pdf -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
 </head>
 <body>
   <header>
@@ -13,22 +17,31 @@
   </header>
 
   <main>
-    <section id="suggestions">
-      <h3>💡 Suggestions pour aujourd’hui</h3>
+    <section id="email-section">
+      <label for="user-email">Email pour rappels :</label>
+      <input type="email" id="user-email" placeholder="votre@email.com">
+      <button id="test-email-btn">Tester l'envoi d'email</button>
+    </section>
+
+    <section id="suggestions-section">
+      <h2>💡 Suggestions pour aujourd’hui</h2>
       <ul id="daily-suggestions"></ul>
     </section>
 
-    <section id="task-form">
-      <input type="text" id="task-input" placeholder="Nouvelle tâche..." />
-      <select id="priority-select">
-        <option value="Haute">Haute priorité</option>
-        <option value="Moyenne" selected>Priorité moyenne</option>
-        <option value="Basse">Basse priorité</option>
-      </select>
-      <input type="date" id="task-date" />
-      <input type="time" id="task-time" />
-      <button id="add-task-btn">Ajouter</button>
-      <button id="voice-btn">🎙️ Dicter</button>
+    <section id="task-form-section">
+      <h2>📋 Ajouter une tâche</h2>
+      <div id="task-form">
+        <input type="text" id="task-input" placeholder="Nouvelle tâche...">
+        <select id="priority-select">
+          <option value="Haute">Haute priorité</option>
+          <option value="Moyenne" selected>Moyenne priorité</option>
+          <option value="Basse">Basse priorité</option>
+        </select>
+        <input type="date" id="task-date">
+        <input type="time" id="task-time">
+        <button id="add-task-btn">Ajouter</button>
+        <button id="voice-btn">🎙️ Dicter</button>
+      </div>
     </section>
 
     <section id="task-list">
@@ -37,7 +50,7 @@
     </section>
 
     <section id="stats-section">
-      <h3>📊 Statistiques de la semaine</h3>
+      <h2>📊 Statistiques de la semaine</h2>
       <p id="stats-output">Chargement...</p>
     </section>
 
@@ -50,12 +63,6 @@
     <p>Créé avec ❤️ pour simplifier ta semaine</p>
   </footer>
 
-  <!-- Librairies -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script>
-    emailjs.init("TON_USER_ID"); // Remplace par ton vrai User ID EmailJS
-  </script>
   <script src="script.js"></script>
 </body>
 </html>

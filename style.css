@@ -1,61 +1,108 @@
 /* style.css */
-
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f6f8;
   color: #333;
+  line-height: 1.6;
 }
 
 header {
   background-color: #4a90e2;
   color: white;
-  padding: 20px;
+  padding: 30px 20px;
   text-align: center;
 }
 
 header h1 {
   margin: 0;
-  font-size: 2em;
+  font-size: 2.5em;
+}
+
+header p {
+  margin: 5px 0 0;
+  font-size: 1.2em;
 }
 
 main {
-  max-width: 800px;
-  margin: 30px auto;
+  max-width: 900px;
+  margin: 40px auto;
   padding: 0 20px;
+}
+
+section {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #4a90e2;
+}
+
+#email-section {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#email-section label {
+  font-size: 1.1em;
+}
+
+#user-email, #test-email-btn {
+  flex: 1;
+  padding: 12px;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+#test-email-btn {
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#test-email-btn:hover {
+  background-color: #e67e22;
 }
 
 #task-form {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
   flex-wrap: wrap;
 }
 
-#task-input, #priority-select {
-  flex: 1;
-  padding: 10px;
+#task-input, #priority-select, #task-date, #task-time {
+  flex: 1 1 150px;
+  padding: 12px;
   font-size: 1em;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
 }
 
-#add-task-btn {
+#add-task-btn, #voice-btn {
   background-color: #4a90e2;
   color: white;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  padding: 12px 20px;
+  border-radius: 8px;
   cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
 }
 
-#add-task-btn:hover {
+#add-task-btn:hover, #voice-btn:hover {
   background-color: #357ab8;
-}
-
-#task-list h2 {
-  margin-bottom: 10px;
 }
 
 #tasks {
@@ -65,13 +112,19 @@ main {
 
 #tasks li {
   background-color: white;
-  border-left: 5px solid #4a90e2;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 5px;
+  border-left: 6px solid #4a90e2;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+#tasks li:hover {
+  transform: translateY(-2px);
 }
 
 #tasks li[data-priority="Haute"] {
@@ -86,27 +139,46 @@ main {
   border-left-color: #2ecc71;
 }
 
-.delete-btn {
+#tasks li.completed span {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.task-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.complete-btn, .edit-btn, .delete-btn {
   background-color: transparent;
   border: none;
-  color: #e74c3c;
   font-size: 1.2em;
   cursor: pointer;
 }
 
-#export-section {
-  text-align: center;
-  margin-top: 30px;
+.complete-btn {
+  color: #27ae60;
+}
+
+.edit-btn {
+  color: #f39c12;
+}
+
+.delete-btn {
+  color: #e74c3c;
 }
 
 #export-pdf-btn {
   background-color: #27ae60;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 25px;
   font-size: 1em;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  display: block;
+  margin: 30px auto;
+  transition: background-color 0.3s;
 }
 
 #export-pdf-btn:hover {
@@ -118,4 +190,49 @@ footer {
   padding: 20px;
   background-color: #eee;
   font-size: 0.9em;
+  margin-top: 40px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  #task-form {
+    flex-direction: column;
+  }
+
+  #task-form > * {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #email-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #user-email, #test-email-btn {
+    width: 100%;
+  }
+
+  header h1 {
+    font-size: 2em;
+  }
+
+  main {
+    padding: 0 10px;
+  }
+
+  section {
+    padding: 15px;
+  }
+
+  #tasks li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-actions {
+    margin-top: 10px;
+    justify-content: flex-end;
+    width: 100%;
+  }
 }
